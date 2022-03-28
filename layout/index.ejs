@@ -1,0 +1,55 @@
+<section class="nexmoe-posts">
+    <% page.posts.each(function (page) { %>
+    <div class="nexmoe-post">
+        <a href="<%- url_for(page.path) %>">
+            <% if (page.cover){ %>
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: <%- page.coverHeight/page.coverWidth*80 %>%;"> 
+                    <img data-src="<%- page.cover %>" data-sizes="auto" alt="<%= page.title %>" class="lazyload">
+                    <h1><%= page.title %></h1>
+                </div>
+            <%}  else{ %>
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: <%- theme.background.height/theme.background.width*80 %>%;">
+                    <img data-src="<%- theme.background.path %>" data-sizes="auto" alt="<%= page.title %>" class="lazyload post-rand-cover">
+                    <h1><%= page.title %></h1>
+                </div>
+            <% } %>
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i><%- date(page.date, "YYYY年MM月DD日") %></a>
+            <% if (page.categories && page.categories.length){ %>
+                <%- list_categories(page.categories, {
+                    show_count: false,
+                    class: 'nexmoefont icon-appstore-fill ',
+                    style: 'none',
+                    separator: ''
+                }) %>
+            <% } %>
+            <% if (page.tags && page.tags.length){ %>
+                <%- list_tags(page.tags, {
+                    show_count: false,
+                    class: 'nexmoefont icon-tag-fill ',
+                    style: 'none',
+                    separator: ' '
+                }) %>
+            <% } %>
+        </div>
+
+        <article>
+            <%- page.excerpt %>
+        </article>
+
+        <div class="uuz-read-more">
+            <div class="cover"></div>
+            <a class="active nexmoe-list-item mdui-list-item mdui-ripple mdui-valign" href="<%- url_for(page.path) %>">
+                <i class="nexmoefont icon-right" style="padding-right: 10px;"></i>
+                <div class="mdui-list-item-content">
+                    进来看看~
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <% }) %>
+</section>
+<%- partial('_partial/paginator') %>

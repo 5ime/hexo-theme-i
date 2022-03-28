@@ -1,0 +1,13 @@
+.DS_Store
+
+*.log
+
+node_modules
+
+.idea
+
+.directory
+
+WIKI/.vuepress/dist
+
+.vscode/
