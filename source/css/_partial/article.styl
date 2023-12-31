@@ -1,7 +1,5 @@
-@import '../color.styl';
-
 article {
-	color: #444;
+	color: var(--color-text-2);
 	font-family: microsoft yahei;
 }
 
@@ -28,58 +26,31 @@ article code::-webkit-scrollbar-thumb {
 }
 
 .highlight {
-	padding: 0 0.5em;
+	padding: 12px 14px;
 	background: #282c34;
 	color: #abb2bf;
 	margin: 25px 0;
-	border-radius: $radius;
+	border-radius: var(--radius);
 	overflow: auto;
+	line-height: 1.2;
 }
 
 .highlight .gutter {
-	border-right: 1px solid #35393b;
+	padding-right: 1em;
+    text-align: right;
+}
+
+.highlight .gutter pre {
+	font-family: sans-serif!important;
 }
 
 article pre {
-	border-radius: $radius;
-	overflow: hidden;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 15px 6px 15px 0;
-	position: relative;
-	background: #282c34;
-	line-height: 1.3em;
-}
-
-article pre::before {
-	// content: "";
-	background: #282c34;
-	height: 32px;
-	margin-bottom: 0;
-	display: block;
-}
-
-article pre:after {
-	// content: " ";
-	position: absolute;
-	border-radius: 50%;
-	background: #ff5f56;
-	width: 12px;
-	height: 12px;
-	top: 0;
-	left: 12px;
-	margin-top: 12px;
-	-webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
-	box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    margin: 0;
 }
 
 article pre code {
-	position: relative;
-	border: none;
-	border-radius: 0;
 	font-size: 100%;
-	font-family: Consolas;
+	padding: 0!important;
 }
 
 article pre code:after {
@@ -100,13 +71,13 @@ article pre code:after {
 article a {
 	-webkit-transition: color 0.35s ease-out;
 	transition: color 0.35s ease-out;
-	color: $color1;
+	color: var(--color-primary);
 	text-decoration: none;
 	word-wrap: break-word;
 }
 
 article a:hover, article a:focus {
-	color: $color1;
+	color: var(--color-primary);
 }
 
 article a:hover {
@@ -180,20 +151,11 @@ article > table.nexmoe-album img {
 
 article img {
 	display: block;
-	border-radius: $radius;
-}
-
-article img.lazyload, article img.lazyloading {
-	opacity: 0;
-	transition: opacity 400ms ease-out;
-}
-
-article img.lazyloaded {
-	opacity: 1;
+	border-radius: var(--radius);
 }
 
 article h1, article h2, article h3, article h4, article h5, article h6 {
-	color: #111;
+	color: var(--color-text-1);
 	margin: $gutter 0;
 }
 
@@ -205,7 +167,7 @@ article h4:before, article h5:before, article h6:before {
 	display: inline-block;
 	width: 1em;
 	content: '#';
-	color: $color1;
+	color: var(--color-primary);
 }
 
 article h1 {
@@ -233,7 +195,7 @@ article h2:after {
 	transition: all 0.35s ease-out;
 	content: '';
 	position: absolute;
-	background: $color1;
+	background: var(--color-primary);
 	width: 1em;
 	height: 5px;
 	bottom: -3px;
@@ -341,6 +303,7 @@ article ol {
 article ol > li {
 	position: relative;
 	padding: 0.4rem 0;
+	line-height: 24px;
 }
 
 article ol > li::before {
@@ -354,8 +317,8 @@ article ol > li::before {
 	text-align: center;
 	border-radius: 8px;
 	line-height: 1.6rem;
-	background-color: rgba(hexo-config('color.first.r'), hexo-config('color.first.g'), hexo-config('color.first.b'), 0.1);
-	color: $color1;
+	background-color: var(--color-primary-bg);
+	color: var(--color-primary);
 }
 
 article li {
@@ -419,9 +382,14 @@ article > table tr:nth-child(2n) {
 	background-color: #f8f8f8;
 }
 
-article img, article canvas, article iframe, article video, article svg, article select, article textarea {
+article img, article canvas, article video, article svg, article select, article textarea {
 	width: auto;
 	max-width: 100%;
+}
+
+article iframe {
+	width: 100%;
+	aspect-ratio: 1.29/1;
 }
 
 details ul {
@@ -456,7 +424,7 @@ article ul {
 
 article ul li {
 	position: relative;
-	padding: 10px 0;
+	padding: 8px 0;
 	padding-left: 25px;
 	line-height: 1rem;
 }
@@ -465,7 +433,7 @@ article ul li::before {
 	content: '';
 	width: 14px;
 	height: 14px;
-	background: $color1;
+	background: var(--color-primary);
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: -2px;
@@ -481,7 +449,7 @@ article ul li::after {
 	content: '';
 	height: 100%;
 	width: 2px;
-	background: rgba(hexo-config('color.first.r'), hexo-config('color.first.g'), hexo-config('color.first.b'), 0.2);
+	background: var(--color-primary-bg);
 	position: absolute;
 	left: 6px;
 	top: 20px;
@@ -496,13 +464,13 @@ article ul span {
 }
 
 article .mdui-btn {
-	background-color: $color1;
+	background-color: var(--color-primary);
 	color: #fff;
 	border-radius: 10px;
 }
 
 article .mdui-btn:focus, article .mdui-btn:hover {
-	background-color: $color1;
+	background-color: var(--color-primary);
 	color: #fff;
 }
 

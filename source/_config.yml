@@ -1,180 +1,152 @@
-avatar: https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg # 网站 Logo
+avatar: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png # 网站 Logo
 background: # 既是博客的背景，又是文章默认头图
-  path: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg
-  width: 1440
-  height: 960
+    path: https://i.dawnlab.me/b5a7e61560facdd5b8aa9683fce147d7.png
+    width: 1280
+    height: 726
 favicon:
-  href: https://blog-1252493876.file.myqcloud.com/favicon.ico # 网站图标
+  href: /favicon.ico # 网站图标
   type: image/x-icon # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
 
 function: # 功能开关，可选值（true,false）
   globalToc: true # 开启该功能会自动开启文章 TOC（文章目录） 功能
-  darkmode: true # 是否启用暗色主题，可选值（true,false）
+  wordCount: true # 是否开启文章字数统计 (true, false)
+  copyCode: true # 是否允许复制代码块
+  highlight: true # 是否开启代码高亮
 
 imageCDN: # 图片 CDN 功能
   enable: false # 开启该功能  
   origin: /../../images/ # 图片原始目录
   to: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/ # 图片 CDN 域名
+
+# 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
+customStyles:
+  - custom.css
   
 # 附加图标库 使用说明：https://docs.nexmoe.com/config/icon
 iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
 
-search: 
-  type: engine # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
-  url: https://www.google.com/search?q=site:5ime.cn # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
-  id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
-
-cdn: # 这里可以修改站点使用的库的CDN
-  disqusjs: 
-    css: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqusjs.min.css
-    js: https://cdn.jsdelivr.net/npm/disqusjs@1.2.5/dist/disqus.min.js
-  gitalk:
-    css: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css
-    js: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
-  valine:
-    js: https://cdn.jsdelivr.net/npm/valine
-
 menu:
-  回到首页:
-    - /
-    - icon-home
-  文章归档:
-    - /archive
-    - icon-container
-  关于我:
-    - /about
-    - icon-info-circle
-  留言板: 
-    - /guestbook
-  友人帐: 
-    - /links
-    - icon-appstore-fill
+    回到首页:
+        - /
+        - icon-home
+    文章归档:
+        - /archive
+        - icon-container
+    关于我:
+        - /about
+        - icon-info-circle
+    留言板: 
+        - /guestbook
+    友人帐: 
+        - /links
+        - icon-appstore-fill
 
 widgets:
-- search
-- social
-- tagcloud
-- category
-- archive 
-# - archive #settings: widgetAchive
-# - recent_posts
-# - link #settings: widgetLink
+    - name: likeme
+      enable: true
+    - name: search
+      enable: true
+      options: 
+        search: 
+            type: local # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
+            url: https://www.google.com/search?q=5ime.cn # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
+            id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
+    - name: social
+      enable: true
+      options: 
+        social:
+            哔哩哔哩:
+                - https://space.bilibili.com/208224743
+                - icon-bilibili
+                - rgb(231, 106, 141)
+                - rgba(231, 106, 141, .15)
+            GitHub:
+                - https://github.com/5ime/
+                - icon-github
+                - rgb(25, 23, 23)
+                - rgba(25, 23, 23, .15)
+            Telegram:
+                - https://t.me/iami_bot
+                - icon-telegram
+                - rgb(100, 185, 255);
+                - rgba(39, 167, 229, .1)
+            Twitter:
+                - https://twitter.com/iami233
+                - icon-twitter
+                - rgb(100, 185, 255);
+                - rgba(29,161,242,.1)
+    - name: category
+      enable: true
+    - name: tagcloud
+      enable: true
+      options: 
+        maxTagcloud: 10  # 标签云组件显示的标签数量，0 表示不限制
+    - name: hitokoto # 一言 widget
+      enable: false
+      options: 
+        widgetHitokoto: # 一言组件
+            loading_placeholder: '🚀 获取中...' # 正在一言时的占位符
+            loading_error_placeholder: '🐞 获取失败...' # 加载一言失败时的占位符
+            category: # 一言句子类型（可选），不配置的话随机获取，详见 https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
+    - name: archive #settings: widgetAchive
+      enable: true
+      options:
+        widgetAchive: #文章归档组件
+            archive_type: 'year' #按月展示还是按年展示
+            show_count: true  #是否展示数量
+    - name: recent_posts
+      enable: false
+    - name: link #settings: widgetLink
+      enable: false
+      options: 
+        widgetLink: #链接组件
+            - title: 折影轻梦
+              img: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png
+              link : https://nexmoe.com/
 
-maxTagcloud: 10  # 标签云组件显示的标签数量，0 表示不限制
-
-social:
-  哔哩哔哩:
-    - https://space.bilibili.com/
-    - icon-bilibili
-    - rgb(231, 106, 141)
-    - rgba(231, 106, 141, .15)
-  GitHub:
-    - https://github.com/
-    - icon-github
-    - rgb(25, 23, 23)
-    - rgba(25, 23, 23, .15)
-
-# 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
-customstyle: false  
-color: # 配色方案，从first到seventh为优先级为1-7的颜色，默认为彩虹配色
-  first: # 同时作为主题色
-    r: 255 
-    g: 78
-    b: 106
-  second:
-    r: 255
-    g: 118
-    b: 30
-  third:
-    r: 255
-    g: 185
-    b: 0
-  fourth:
-    r: 51
-    g: 213
-    b: 122
-  fifth:
-    r: 0
-    g: 219
-    b: 255
-  sixth:
-    r: 26
-    g: 152
-    b: 255
-  seventh:
-    r: 144
-    g: 144
-    b: 255
-
-# 向搜索引擎验证你对站点的所有权，用于向搜索引擎提交 sitemap 和管理站点被搜索引擎收录的情况。
-site_verification: 
-  google:
-  baidu:
-
-# 统计系统，目前支持 Google analytics.js 统计、Google Tag Manager 统计、CNZZ 统计、腾讯统计、51.La统计、百度统计
-analytics: 
-  google_site_id: #<ID>
-  gtags_site_id: #<ID>
-  cnzz_site_id: #<ID>
-  tencent_site_id: #<ID>
-  la_site_id: #<ID>
-  baidu_site_id: #<ID>
-  gtm_container_id: #<ID>
-
-# 评论框，目前支持 gitalk,gitment,valine,disqus,disqusjs,changyan,livere,DiscussBot 使用 false 可以关闭
-comment: gitalk
-gitalk:
-  admin: nexmoe # 拥有对该repo进行操作的 GitHub username
-  owner: nexmoe # 持有该 repo 的 GitHub username
-  repo: nexmoe.github.io # 存放评论的 issue 所在的 repo
-  clientID: 80b2453b6d5f37ad6225 # GitHub Client ID
-  clientSecret: 43e99fa852795c9a7b3eb924b2558c64b84bbdeb # GitHub Client Secret
-gitment:
-  owner: nexmoe # 持有该 repo 的 GitHub username
-  repo: nexmoe.github.io # 存放评论的 issue 所在的 repo
-  clientID: 80b2453b6d5f37ad6225 # GitHub Client ID
-  clientSecret: 43e99fa852795c9a7b3eb924b2558c64b84bbdeb # GitHub Client Secret
-valine: 
-  appId: <API_ID> # leancloud application app id
-  appKey: <API_Key> # leancloud application app key
-disqus:
-  shortname: <shortname> # 你的 Disqus shortname
-disqusjs:
-  shortname: <shortname> # 你的 Disqus shortname
-  sitename: <sitename> # 你站点的名称，将会显示在「评论基础模式」的 header 中；该配置应该和 Disqus Admin - Settings - General - Website Name 一致
-  api: https://disqus.skk.moe/disqus/ # DisqusJS 请求的 API Endpoint，通常情况下你应该配置一个 Disqus API 的反代并填入反代的地址。你也可以直接使用 DISQUS 官方 API 的 Endpoint https://disqus.com/api/，或是使用SukkaW搭建的 Disqus API 反代 Endpoint https://disqus.skk.moe/disqus/。
-  apikey: <api_key> # DisqusJS 向 API 发起请求时使用的 API Key，你应该在配置 Disqus Application 时获取了 API Key;DisqusJS 支持填入一个 包含多个 API Key 的 Array，在每次请求时会随机使用其中一个；如果你只需要填入一个 API Key，则可以填入 String 或 Array。
-  admin: <admin> # 你的站点的 Disqus Moderator 的用户名（也就是你的用户名）。你可以在 Disqus - Settings - Account - Username 获取你的 Username
-  adminLabel: <adminLabel> # 你想显示在 Disqus Moderator Badge 中的文字。该配置应和 Disqus Admin - Settings - Community - Moderator Badge Text 相同
-changyan:
-  appid: <APP_ID> # 畅言的 APPID
-  conf: <CONF> # 畅言的 CONF
-  thread_key_type: path # 可选 id 或 path
-livere:
-  data_uid: <data_uid> # 你的来必力 UID，可以在来必力后台获取
-DiscussBot:
-  id: <id> # 站点id
-  comments: 5 # 可能是限制每位用户单页面评论最多条数？
-  color: # 评论框主色调
-  dislike: 0 # 显示差评按钮
-  icons: 0 # 图标主题
-  diff: 0 # 每位用户name不同颜色
-
-copyright: '<strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
 copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url" # 自定义复制版权文案,使用 %url 代替当前页面URL, 修改为false禁用
 
-# achive widget behavior
-widgetAchive: #文章归档组件
-  archive_type: 'year' #按月展示还是按年展示
-  show_count: true  #是否展示数量
+slotHead: | 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=替换为你的谷歌统计ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-widgetLink: #链接组件
-  - title: <title>
-    img : <img_path>
-    link : <url>
-  - title: <title>
-    img : <img_path>
-    link : <url>
+    gtag('config', '替换为你的谷歌统计ID');
+  </script>
+
+slotFooter: | 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-替换为你的谷歌广告ID"
+  crossorigin="anonymous"></script><script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?替换为你的百度统计ID";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
 
 # 自定义侧边栏尾部内容
-sidebar: '<br><a href="https://github.com/5ime/hexo-theme-i" target="_blank">Theme</a> & <a href="/atom.xml" target="_blank">RSS</a> & <a href="/sitemap.xml" target="_blank">Sitemap</a>'
+slotSidebar: |
+  <br><a href="https://github.com/5ime/hexo-theme-i" target="_blank">Theme</a> & <a href="https://5ime.cn/atom.xml" target="_blank">RSS</a> & <a href="https://5ime.cn/sitemap.xml" target="_blank">Sitemap</a>
+
+# 评论框插槽
+slotComment: | 
+  <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script><link  rel="stylesheet"  href="https://unpkg.com/@waline/client@v2/dist/waline.css"/><div id="waline"></div><script>const locale = {placeholder: "🚀评论和回复支持Markdown\n📌请务必填写邮箱 用以接收评论回复提醒~"};Waline.init({el: "#waline",serverURL: "https://comment.5ime.cn",locale});</script>
+
+slotCopyright: | 
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+slotArticleEnd: | 
+  <ins class="adsbygoogle"
+   style="display:block"
+   data-ad-client="ca-pub-替换为你的谷歌广告ID"
+   data-ad-slot="5736974812"
+   data-ad-format="auto"
+   data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
