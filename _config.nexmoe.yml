@@ -1,6 +1,6 @@
 avatar: https://cdn.jsdelivr.net/gh/5ime/img/avatar.jpg # 网站 Logo
 background: # 既是博客的背景，又是文章默认头图
-    path: https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1559251606-c623743a6d76?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTN8fHBpbmt8ZW58MHx8fHwxNjYzMDQ0Nzc2&ixlib=rb-1.2.1&w=1920
+    path: https://p1.meituan.net/csc/ea3f6516d0622b0b3c5934d6a3b8e69a405101.png
     width: 1280
     height: 726
 favicon:
@@ -65,16 +65,16 @@ widgets:
                 - icon-github
                 - rgb(25, 23, 23)
                 - rgba(25, 23, 23, .15)
-            Telegram:
-                - https://t.me/iami_bot
-                - icon-telegram
-                - rgb(100, 185, 255);
-                - rgba(39, 167, 229, .1)
-            Twitter:
-                - https://twitter.com/iami233
-                - icon-twitter
-                - rgb(100, 185, 255);
-                - rgba(29,161,242,.1)
+            # Telegram:
+            #     - https://t.me/iami_bot
+            #     - icon-telegram
+            #     - rgb(100, 185, 255);
+            #     - rgba(39, 167, 229, .1)
+            # Twitter:
+            #     - https://twitter.com/iami233
+            #     - icon-twitter
+            #     - rgb(100, 185, 255);
+            #     - rgba(29,161,242,.1)
     - name: category
       enable: true
     - name: tagcloud
@@ -108,26 +108,17 @@ copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权�
 
 slotHead: | 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z68BHM5GN"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxxxxxx"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-8Z68BHM5GN');
+    gtag('config', 'G-xxxxxxxxxxxxx');
   </script>
 
 slotFooter: | 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1759509770249694"
-  crossorigin="anonymous"></script><script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?ebaead8388ce801467630900a841f798";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
-  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxx" crossorigin="anonymous"></script>
 
 # 自定义侧边栏尾部内容
 slotSidebar: |
@@ -143,8 +134,8 @@ slotCopyright: |
 slotArticleEnd: | 
   <ins class="adsbygoogle"
    style="display:block"
-   data-ad-client="ca-pub-1759509770249694"
-   data-ad-slot="5736974812"
+   data-ad-client="ca-pub-xxxxxxxxxxxxx"
+   data-ad-slot="xxxxxxxxxxxxx"
    data-ad-format="auto"
    data-full-width-responsive="true"></ins>
   <script>
